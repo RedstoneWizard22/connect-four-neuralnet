@@ -102,7 +102,7 @@ class MultilayerPerceptron {
     this.hiddenLayers[0].values = multiply(
       this.inputLayer.weights,
       this.inputLayer.values
-    )[0].map((value, index) => {
+    ).map((value, index) => {
       return this.hiddenLayers[0].activation(
         value + this.hiddenLayers[0].biases[index]
       );
@@ -113,7 +113,7 @@ class MultilayerPerceptron {
       this.hiddenLayers[i].values = multiply(
         this.hiddenLayers[i - 1].weights,
         this.hiddenLayers[i - 1].values
-      )[0].map((value, index) => {
+      ).map((value, index) => {
         return this.hiddenLayers[i].activation(
           value + this.hiddenLayers[i].biases[index]
         );
@@ -124,7 +124,7 @@ class MultilayerPerceptron {
     this.outputLayer.values = multiply(
       this.hiddenLayers[this._hiddenLayerCount - 1].weights,
       this.hiddenLayers[this._hiddenLayerCount - 1].values
-    )[0].map((value, index) => {
+    ).map((value, index) => {
       return this.outputLayer.activation(
         value + this.outputLayer.biases[index]
       );
